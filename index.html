@@ -768,7 +768,7 @@ const PLAYER_SPEED = 11;
 const PLAYER_RADIUS = 0.9;
 const INTERACT_RANGE = 5;
 const DRONE_HIT_RANGE = 1.8;
-const OUTER_ZONE_TIMER = 12;
+const OUTER_ZONE_TIMER = 14;
 const PULSE_INTERVAL = 15;
 const EMP_DURATION = 8;
 const MAX_SHIELDS = 4;
@@ -800,7 +800,7 @@ const LAYOUTS = {
       { x: -12, z: -12, w: 4, d: 4, h: 7 }, { x: 12, z: -14, w: 4, d: 4, h: 7 }, { x: 0, z: -35, w: 10, d: 8, h: 9 },
       { x: -15, z: -55, w: 6, d: 3, h: 6 }, { x: 15, z: -40, w: 3, d: 6, h: 6 }
     ],
-    drones: { patrolSpeed: 6, chaseRadius: 8, chaseSpeed: 7.5, paths: [
+    drones: { patrolSpeed: 7, chaseRadius: 9, chaseSpeed: 8, paths: [
       [[-36, -5], [-20, -5], [-20, -30], [-36, -30]],
       [[20, -6], [36, -6], [36, -34], [20, -34]],
       [[-38, -40], [-21, -40], [-21, -62], [-38, -62]],
@@ -818,7 +818,7 @@ const LAYOUTS = {
       { x: -18, z: -42, w: 20, d: 1, h: 14 }, { x: 18, z: -42, w: 12, d: 1, h: 14 },
       { x: -5, z: -57, w: 26, d: 1, h: 14 }, { x: 20, z: -52, w: 1, d: 12, h: 14 }
     ],
-    drones: { patrolSpeed: 7, chaseRadius: 11, chaseSpeed: 9.0, paths: [
+    drones: { patrolSpeed: 6.5, chaseRadius: 10, chaseSpeed: 9.0, paths: [
       [[-24, -5], [24, -5]],
       [[-24, -20], [-24, -38]],
       [[2, -36], [22, -36]],
@@ -1528,7 +1528,7 @@ function startLevel(idx) {
   buildPips(); updateHUD();
   toast(`SECTOR 0${L.levelId} // THREAT: ${L.zoneThreat}`, levelName(L), L.zoneThreat === "Extreme" ? "#ff2a55" : L.zoneThreat === "Medium" ? "#4dd2ff" : "#ffc857", 3200);
   if (L.levelId === 3) setTimeout(() => S.state === "play" && toast("WARNING", "Neural pulses every 15s — reach a shelter", "#ff2a55", 3000), 3400);
-  if (L.levelId === 2) setTimeout(() => S.state === "play" && toast("ADVISORY", "Outer risk zone: 12s timers + data corruption", "#ff2a55", 3000), 3400);
+  if (L.levelId === 2) setTimeout(() => S.state === "play" && toast("ADVISORY", "Outer risk zone: 14s timers + data corruption", "#ff2a55", 3000), 3400);
 }
 function setState(s) { S.state = s; if (document.activeElement && document.activeElement.blur && document.activeElement.tagName !== "INPUT") document.activeElement.blur(); for (const k in keys) keys[k] = false; touch.up = touch.down = false; }
 function hideAllModals() { document.querySelectorAll(".modal").forEach((m) => m.classList.add("hidden")); }
@@ -1783,7 +1783,7 @@ let lastZone = null;
 function updateZoneChip() {
   const L = currentLevel(), z = $("#hudZone");
   let label, cls;
-  if (layout.innerZone) { const inner = inInnerZone(player.pos.x, player.pos.z); label = inner ? "SAFE INNER ZONE · 20s" : "OUTER RISK ZONE · 12s"; cls = inner ? "zone-safe" : "zone-risk"; }
+  if (layout.innerZone) { const inner = inInnerZone(player.pos.x, player.pos.z); label = inner ? "SAFE INNER ZONE · 20s" : "OUTER RISK ZONE · 14s"; cls = inner ? "zone-safe" : "zone-risk"; }
   else if (L.levelId === 3) { const sh = inShelter(); label = sh ? "PULSE SHELTER" : "NEURAL CORE · EXPOSED"; cls = sh ? "zone-safe" : "zone-risk"; }
   else { label = `OPEN SECTOR · ${L.timerSeconds}s`; cls = "zone-safe"; }
   if (label !== lastZone) { z.textContent = label; z.className = `chip ${cls}`; lastZone = label; }
@@ -2538,8 +2538,8 @@ if (typeof THREE === "undefined") {
           <div style="background:rgba(255,51,102,0.05); border:1px solid rgba(255,51,102,0.3); padding:8px; border-radius:4px;">
             <strong style="color:#ff3366;">HAZARDS & RULES:</strong><br>
             • Avoid roaming Hunter Drones.<br>
-            • Type answers in <strong>8s</strong> during intercepts.<br>
-            • Clear all sectors to win!
+            • Type answers in <strong>8s</strong> when caught by hunter drones.<br>
+            • Clear all sectors to win!<br>
           </div>
         </div>
       </div>
