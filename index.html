@@ -561,6 +561,7 @@
       <li>Grab pods early.</li>
       <li>Use obstacles to lose chasing drones.</li>
       <li>Save EMP for tough questions or close chases.</li>
+      <li>Play in landscape for maximum visibility.</li>
     </ol></div>
 
     <div class="btn-row"><button class="btn" id="helpDone" type="button">Got it</button></div>
@@ -573,7 +574,7 @@
    ===================================================================== */
 const gameData = {
   gameTitle: "MEMORY PROTOCOL: 1521",
-  tagline: "You are a Chronos Agent piloting an anti-virus ship. Your mission is to fly into the infected quantum sectors, evade OBLIVION’s (a rouge AI) LiDAR-equipped Hunter Drones, and use historical cryptography to decrypt the data nodes. By proving your knowledge, you will restore the corrupted data and save Philippine history.",
+  tagline: "You are a Chronos Agent piloting an anti-virus ship. Your mission is to fly into the infected quantum sectors, evade OBLIVION’s (a rogue AI) LiDAR-equipped Hunter Drones, and use historical cryptography to decrypt the data nodes. By proving your knowledge, you will restore the corrupted data and save Philippine history.",
 
   // EMERGENCY DRONE INTERCEPT QUESTIONS (IDENTIFICATION / SHORT ANSWER)
   droneInterceptQuestions: [
@@ -729,7 +730,7 @@ const gameData = {
           question: "Ano ang isa sa mga dahilan ng hindi pagkakaunawaan sa loob ng Katipunan?",
           options: ["Pagkakaroon ng dalawang pangkat na may magkaibang pananaw", "Pagkakaroon ng digmaan sa ibang bansa", "Pagtaas ng presyo ng mga pagkain", "Pagbabago ng panahon"],
           correctAnswer: "Pagkakaroon ng dalawang pangkat na may magkaibang pananaw",
-          hint: "insert"
+          hint: "nyek"
         },
         {
           id: "L3_N3",
@@ -749,7 +750,7 @@ const gameData = {
           question: "Tukuyin ang pinunong rebolusyonaryong Pilipino na nagtatag ng Katipunan at nanguna sa kilusan para sa kalayaan ng Pilipinas.",
         
           correctAnswer: "Andres Bonifacio",
-          hint: "insert"
+          hint: "pre kilala mo na yan"
         }
       ]
     }
@@ -2531,7 +2532,8 @@ if (typeof THREE === "undefined") {
             <strong style="color:#00f3ff;">FLIGHT CONTROLS:</strong><br>
             • <strong>WASD / Arrows:</strong> Steer Probe<br>
             • <strong>Mouse / Q-E:</strong> Roll & Look<br>
-            • <strong>Space / E:</strong> Ascend & Interact
+            • <strong>Space / E:</strong> Ascend/Descend & Interact<br>
+            • <strong>R / F:</strong> Fly Up / Down<br>
           </div>
           <div style="background:rgba(255,51,102,0.05); border:1px solid rgba(255,51,102,0.3); padding:8px; border-radius:4px;">
             <strong style="color:#ff3366;">HAZARDS & RULES:</strong><br>
