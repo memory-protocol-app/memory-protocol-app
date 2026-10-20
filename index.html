@@ -570,7 +570,7 @@
 <script>
 /* =====================================================================
    MEMORY PROTOCOL: 1521 – THE CHRONOS GRID  (3D Free-Roam Edition)
-   Edit every "insert" value below to author your own content.
+   Edit every "insert" value below to author your own history-based game. You can also add more levels, nodes, and drone questions. The game engine will automatically handle the rest.
    ===================================================================== */
 const gameData = {
   gameTitle: "MEMORY PROTOCOL: 1521",
@@ -610,13 +610,7 @@ const gameData = {
 
   // LEVEL PROGRESSION (STRICTLY MULTIPLE CHOICE NODES)
   levels: [
-    {
-      levelId: 1,
-      levelName: "insert", // e.g., Level 1: Spanish Colonial Sector
-      zoneThreat: "Low",
-      timerSeconds: 20,
-      nodes: [
-        {
+   {
           id: "L1_N1",
           destinationName: "SPANISH COLONIAL DATA NODE",
           position: { x: -15, y: 2, z: -15 },
@@ -624,7 +618,7 @@ const gameData = {
           question: " Alin sa mga sumusunod na layunin ng Espanya ang itinuturing na tunay na dahilan ng kolonisasyon, habang ang Katolisismo ay ginamit lamang bilang kasangkapan? ",
           options: ["Katolosismo", "Kayamanan", "Kapangyarihan", "Kasapi"],
           correctAnswer: "Kayamanan",
-          hint: "Kaya mo yan, madali lang naman"
+          hint: "Ginto"
         },
         {
           id: "L1_N2",
@@ -634,7 +628,7 @@ const gameData = {
           question: "Aling patakaran ng mga Espanyol ang nag-aatas sa mga Pilipino na magtrabaho nang walang sahod sa ilang araw bawat taon?",
           options: ["Tributo","Bandala", "Polos y Servicios", "Encomienda" ],
           correctAnswer: "Polos y Servicios",
-          hint: "Luh, asa ka"
+          hint: "Polista ang tawag sa mga manggagawa"
         },
         {
           id: "L1_N3",
@@ -644,7 +638,7 @@ const gameData = {
           question: "Ang mga Peninsulares ay mga Kastilang ipinanganak sa Pilipinas, habang ang mga Insulares naman ay mga Kastilang ipinanganak mismo sa Espanya.",
           options: ["Tama", "Mali"],
           correctAnswer: "Mali",
-          hint: "Bahala ka dyan pre"
+          hint: "No hint"
         },
         {
           id: "L1_N4",
@@ -654,7 +648,7 @@ const gameData = {
           question: "Ano ang tawag sa proseso ng paglilipat at pagsasama-sama ng mga nakakalat na katutubong tahanan tungo sa isang organisadong pamayanan o bayan?",
           options: ["Reduccion", "Encomienda", "Mercantilismo", "Plaza Complex"],
           correctAnswer: "Reduccion",
-          hint: "Secret, hulaan mo"
+          hint: "batas na itinipon sa pueblo"
         }
       ]
     },
@@ -672,7 +666,7 @@ const gameData = {
           question: " Aling kaganapan o dokumento ang ginamit ng pamahalaang Amerikano upang gawing legal ang kanilang pananakop sa Pilipinas",
           options: ["Ang Saligang Batas ng Malolos", "Ang Tratado ng Paris", "Ang Brigandage Act", "Ang Benevolent Assimilation Proclamation"],
           correctAnswer: "Ang Tratado ng Paris",
-          hint: "Ang masasabi ko lang, andyan yung sagot"
+          hint: "Pagbili ng mga Amerikano sa mga Pilipino mula sa mga Kastila"
         },
         {
           id: "L2_N2",
@@ -682,7 +676,7 @@ const gameData = {
           question: " Sino ang diplomatikong Pilipino na naglakbay sa Pransya at Amerika upang ipaglaban ang kalayaan ng Pilipinas ngunit napagsarhan ng pinto sa mga negosasyon ng kasunduang pangkapayapaan?",
           options: ["Apolinario Mabini", "Pedro Paterno", " Felipe Agoncillo", "Macario Sakay"],
           correctAnswer: " Felipe Agoncillo",
-          hint: "Bleeeee"
+          hint: "Siya ang kinatawan sa naganap na kasunduan sa Paris"
         },
         {
           id: "L2_N3",
@@ -692,7 +686,7 @@ const gameData = {
           question: "Ano ang pangunahing naging resulta ng Kasunduan sa Paris?",
           options: ["Ipinagkaloob ng Espanya ang Pilipinas sa Estados Unidos", "Naging malaya agad ang Pilipinas", "Bumalik ang pamahalaang Espanyol sa Pilipinas", "Natapos ang lahat ng problema ng mga Pilipino"],
           correctAnswer: "Ipinagkaloob ng Espanya ang Pilipinas sa Estados Unidos",
-          hint: "Kilala mo yan, seryoso"
+          hint: "Ang pag traydor ng mga Amerikano sa mga Pilipino"
         },
         {
           id: "L2_N4",
@@ -702,7 +696,7 @@ const gameData = {
           question: " Siya ang naging lider ng mga rebolusyonaryo at naging pangulo ng pamahalaang rebolusyonaryo.",
       
          correctAnswer: "Emilio Aguinaldo",
-          hint: "Bayad muna"
+          hint: "Unang pangulo ng Pilipinas"
         }
       ]
     },
@@ -720,7 +714,7 @@ const gameData = {
           question: "Kailan opisyal na itinatag ang Katipunan?",
           options: ["Hulyo 7, 1894", " Agosto 29, 1896", "Disyembre 30, 1896", "Hulyo 7, 1892"],
           correctAnswer: "Hulyo 7, 1892",
-          hint: "Feeling ko dati pa yon"
+          hint: "Hulyo 7"
         },
         {
           id: "L3_N2",
@@ -730,7 +724,7 @@ const gameData = {
           question: "Ano ang isa sa mga dahilan ng hindi pagkakaunawaan sa loob ng Katipunan?",
           options: ["Pagkakaroon ng dalawang pangkat na may magkaibang pananaw", "Pagkakaroon ng digmaan sa ibang bansa", "Pagtaas ng presyo ng mga pagkain", "Pagbabago ng panahon"],
           correctAnswer: "Pagkakaroon ng dalawang pangkat na may magkaibang pananaw",
-          hint: "nyek"
+          hint: "May pagitan"
         },
         {
           id: "L3_N3",
@@ -740,7 +734,7 @@ const gameData = {
           question: "Ang pagkahuli kay Heneral Emilio Aguinaldo sa Palanan, Isabela ay agarang nagtapos sa lahat ng armadong pakikipaglaban ng mga Pilipino laban sa pwersang Amerikano.",
           options: ["Tama", "Mali"],
           correctAnswer: "Mali",
-          hint: "Basahin mo, bakit mo pa kailangan ng tulong dyan"
+          hint: "No hint"
         },
         {
           id: "L3_N4",
@@ -750,12 +744,13 @@ const gameData = {
           question: "Tukuyin ang pinunong rebolusyonaryong Pilipino na nagtatag ng Katipunan at nanguna sa kilusan para sa kalayaan ng Pilipinas.",
         
           correctAnswer: "Andres Bonifacio",
-          hint: "pre kilala mo na yan"
+          hint: "Ama ng Himagsikang Pilipino"
         }
       ]
     }
   ]
 };
+
 
 /* =====================================================================
    ENGINE CONFIG (sector layouts, difficulty tuning)
